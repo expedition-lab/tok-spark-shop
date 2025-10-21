@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Loader2, ShoppingBag, ArrowLeft } from "lucide-react";
 import { getProductByHandle } from "@/lib/shopify";
 import { useCartStore, type ShopifyProduct } from "@/stores/cartStore";
+import { toast } from "sonner";
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
@@ -60,6 +61,11 @@ const ProductDetail = () => {
     )?.node;
     
     if (!selectedVariant) return;
+
+    if (!selectedVariant.availableForSale) {
+      toast.error("This variant is currently unavailable");
+      return;
+    }
 
     addItem({
       product,
