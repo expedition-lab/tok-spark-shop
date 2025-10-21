@@ -47,7 +47,7 @@ export const Navigation = ({ user }: NavigationProps) => {
             <Button variant="ghost" size="icon" onClick={() => navigate("/create")}>
               <PlusCircle className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" onClick={() => navigate("/wallet")}>
               <Wallet className="h-5 w-5" />
             </Button>
 
@@ -76,7 +76,7 @@ export const Navigation = ({ user }: NavigationProps) => {
                   <UserIcon className="mr-2 h-4 w-4" />
                   Profile
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigate("/wallet")}>
                   <Wallet className="mr-2 h-4 w-4" />
                   Wallet
                 </DropdownMenuItem>

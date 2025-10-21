@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, Share2, MessageCircle, ShoppingBag, Eye } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
+import { BuyModal } from "@/components/BuyModal";
 
 interface FeedProps {
   user: User;
@@ -41,6 +42,8 @@ export const Feed = ({ user }: FeedProps) => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
+  const [buyModalOpen, setBuyModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
   useEffect(() => {
     loadPosts();
@@ -201,7 +204,17 @@ export const Feed = ({ user }: FeedProps) => {
                   </p>
                 </div>
               </div>
-              <Button size="sm" className="shadow-glow">
+              <Button
+                size="sm"
+                className="shadow-glow"
+                onClick={() => {
+                  setSelectedProduct({
+                    ...post.products,
+                    creator_id: post.creators.user_id,
+                  });
+                  setBuyModalOpen(true);
+                }}
+              >
                 <ShoppingBag className="h-4 w-4 mr-1" />
                 Buy
               </Button>
@@ -240,6 +253,14 @@ export const Feed = ({ user }: FeedProps) => {
           </div>
         </Card>
       ))}
+
+      <BuyModal
+        open={buyModalOpen}
+        onClose={() => setBuyModalOpen(false)}
+        product={selectedProduct}
+        user={user}
+        onSuccess={() => loadPosts()}
+      />
     </div>
   );
 };
