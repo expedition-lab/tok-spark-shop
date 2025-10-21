@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Home, PlusCircle, Wallet, LogOut, User as UserIcon } from "lucide-react";
+import { Home, PlusCircle, Wallet, LogOut, User as UserIcon, LayoutDashboard } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo.png";
@@ -68,6 +68,10 @@ export const Navigation = ({ user }: NavigationProps) => {
                   <p className="text-xs text-muted-foreground">@{user.user_metadata?.username}</p>
                 </div>
                 <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => navigate("/dashboard")}>
+                  <LayoutDashboard className="mr-2 h-4 w-4" />
+                  Dashboard
+                </DropdownMenuItem>
                 <DropdownMenuItem>
                   <UserIcon className="mr-2 h-4 w-4" />
                   Profile
