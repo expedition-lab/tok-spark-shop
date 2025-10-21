@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
@@ -28,6 +29,7 @@ interface Post {
     images: string[];
   };
   creators: {
+    id: string;
     user_id: string;
     shop_name: string;
     profiles: {
@@ -62,6 +64,7 @@ export const Feed = ({ user }: FeedProps) => {
             images
           ),
           creators (
+            id,
             user_id,
             shop_name,
             profiles (
@@ -157,7 +160,7 @@ export const Feed = ({ user }: FeedProps) => {
       {posts.map((post) => (
         <Card key={post.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
           {/* Creator info */}
-          <div className="p-4 flex items-center justify-between">
+          <Link to={`/creator/${post.creators.id}`} className="p-4 flex items-center justify-between hover:bg-secondary/50 transition-colors">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-full bg-gradient-primary" />
               <div>
@@ -170,9 +173,8 @@ export const Feed = ({ user }: FeedProps) => {
             {post.creators.shop_name && (
               <Badge variant="secondary">{post.creators.shop_name}</Badge>
             )}
-          </div>
+          </Link>
 
-          {/* Media */}
           {post.media_url && (
             <div className="relative aspect-[9/16] md:aspect-video bg-muted">
               <img

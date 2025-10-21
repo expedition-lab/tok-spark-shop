@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
+import CreatorProfile from "./pages/CreatorProfile";
+import Orders from "./pages/Orders";
 import CreateProduct from "./pages/CreateProduct";
 import Dashboard from "./pages/Dashboard";
 import Wallet from "./pages/Wallet";
@@ -35,6 +37,9 @@ const App = () => (
           <Route path="/courses/:id/watch" element={<CourseWatch />} />
           <Route path="/manage-courses" element={<ManageCourses />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/creator/:id" element={<CreatorProfile />} />
+          <Route path="/orders" element={<Orders />} />
           <Route path="/product/:handle" element={<ProductDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

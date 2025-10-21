@@ -6,7 +6,8 @@ import { Navigation } from "@/components/Navigation";
 import { CartDrawer } from "@/components/CartDrawer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Loader2, Search, ShoppingBag } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Loader2, Search, ShoppingBag, Filter } from "lucide-react";
 import { getProducts } from "@/lib/shopify";
 import { useCartStore, type ShopifyProduct } from "@/stores/cartStore";
 
@@ -15,6 +16,7 @@ const Shop = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [priceRange, setPriceRange] = useState<string>("all");
   const navigate = useNavigate();
   const addItem = useCartStore(state => state.addItem);
 
@@ -46,10 +48,23 @@ const Shop = () => {
     }
   };
 
-  const filteredProducts = products.filter(product =>
-    product.node.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    product.node.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredProducts = products.filter(product => {
+    const matchesSearch = product.node.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.node.description.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    if (!matchesSearch) return false;
+
+    if (priceRange === "all") return true;
+    
+    const price = parseFloat(product.node.priceRange.minVariantPrice.amount);
+    switch (priceRange) {
+      case "under-25": return price < 25;
+      case "25-50": return price >= 25 && price <= 50;
+      case "50-100": return price > 50 && price <= 100;
+      case "over-100": return price > 100;
+      default: return true;
+    }
+  });
 
   const handleAddToCart = (product: ShopifyProduct) => {
     const defaultVariant = product.node.variants.edges[0]?.node;
@@ -85,17 +100,44 @@ const Shop = () => {
               <CartDrawer />
             </div>
 
-            {/* Search */}
-            <div className="relative max-w-md">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Search products..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
+            {/* Search & Filters */}
+            <div className="flex flex-col sm:flex-row gap-4 max-w-2xl">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
+              
+              <Select value={priceRange} onValueChange={setPriceRange}>
+                <SelectTrigger className="w-full sm:w-48">
+                  <Filter className="w-4 h-4 mr-2" />
+                  <SelectValue placeholder="Price Range" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Prices</SelectItem>
+                  <SelectItem value="under-25">Under $25</SelectItem>
+                  <SelectItem value="25-50">$25 - $50</SelectItem>
+                  <SelectItem value="50-100">$50 - $100</SelectItem>
+                  <SelectItem value="over-100">Over $100</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
+            
+            {(searchQuery || priceRange !== "all") && (
+              <p className="text-sm text-muted-foreground">
+                {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
+                {(searchQuery || priceRange !== "all") && (
+                  <Button variant="link" size="sm" onClick={() => { setSearchQuery(""); setPriceRange("all"); }} className="ml-2">
+                    Clear filters
+                  </Button>
+                )}
+              </p>
+            )}
           </div>
 
           {/* Products Grid */}
