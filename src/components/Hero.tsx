@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Sparkles, ShoppingBag, Zap, TrendingUp, Users, Video, DollarSign, Target, Heart, Star, PlayCircle } from "lucide-react";
+import { Sparkles, ShoppingBag, Zap, TrendingUp, Users, Video, DollarSign, Target, Heart, Star, PlayCircle, Check, Shield, Smartphone, Lock, Clock, ArrowRight, Trophy, Eye } from "lucide-react";
 import logo from "@/assets/logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -50,9 +50,9 @@ export const Hero = () => {
 
           {/* Explosive value prop */}
           <p className="text-center text-lg sm:text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed animate-fade-in px-4">
-            Why make <span className="text-[hsl(340,82%,58%)] font-bold">Zuckerberg</span> rich when you could be building 
-            <span className="text-[hsl(280,70%,60%)] font-bold"> YOUR empire?</span> 
+            Stop giving away your content for free on platforms that keep 100% of the profit.
             <br className="hidden sm:block" />
+            Here, <span className="text-[hsl(340,82%,58%)] font-bold">you keep 90%</span> of every sale. 
             Sell products. Teach courses. Go live. <span className="text-white font-bold">Get PAID.</span>
           </p>
 
@@ -172,34 +172,227 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Final CTA - urgency */}
-          <div className="text-center pt-8 sm:pt-12 pb-8 sm:pb-12 animate-fade-in px-4" style={{ animationDelay: '0.8s' }}>
-            <div className="glass-card rounded-3xl p-6 sm:p-10 max-w-3xl mx-auto backdrop-blur-2xl border-2 border-[hsl(340,82%,58%)]/30">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 sm:mb-4">
-                Stop Making Others Rich
+          {/* Comparison Table - TokMarket vs Others */}
+          <div className="pt-12 sm:pt-16 animate-fade-in px-4" style={{ animationDelay: '1s' }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-8 sm:mb-12 text-center">
+              Why Creators Are <span className="text-[hsl(340,82%,58%)]">Switching</span>
+            </h2>
+            <div className="glass-card rounded-3xl p-6 sm:p-8 max-w-5xl mx-auto backdrop-blur-2xl overflow-x-auto">
+              <div className="min-w-[600px]">
+                <div className="grid grid-cols-4 gap-4 mb-6">
+                  <div className="text-white/60 text-sm font-medium"></div>
+                  <div className="text-center">
+                    <div className="text-[hsl(340,82%,58%)] font-black text-lg mb-2">TokMarket</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-white/40 font-bold text-lg mb-2">Platform A</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-white/40 font-bold text-lg mb-2">Platform B</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
+                    <div className="text-white/80 font-medium text-sm">You Keep</div>
+                    <div className="text-center text-[hsl(340,82%,58%)] font-black text-2xl">90%</div>
+                    <div className="text-center text-white/40 font-bold text-xl">0%</div>
+                    <div className="text-center text-white/40 font-bold text-xl">0%</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
+                    <div className="text-white/80 font-medium text-sm">Sell Products</div>
+                    <div className="text-center"><Check className="h-6 w-6 text-[hsl(340,82%,58%)] mx-auto" /></div>
+                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
+                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
+                    <div className="text-white/80 font-medium text-sm">Sell Courses</div>
+                    <div className="text-center"><Check className="h-6 w-6 text-[hsl(340,82%,58%)] mx-auto" /></div>
+                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
+                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
+                    <div className="text-white/80 font-medium text-sm">Own Your Audience</div>
+                    <div className="text-center"><Check className="h-6 w-6 text-[hsl(340,82%,58%)] mx-auto" /></div>
+                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
+                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
+                    <div className="text-white/80 font-medium text-sm">AI Listing Creator</div>
+                    <div className="text-center"><Check className="h-6 w-6 text-[hsl(340,82%,58%)] mx-auto" /></div>
+                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
+                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
+                    <div className="text-white/80 font-medium text-sm">Algorithm BS</div>
+                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
+                    <div className="text-center"><Check className="h-6 w-6 text-white/40 mx-auto" /></div>
+                    <div className="text-center"><Check className="h-6 w-6 text-white/40 mx-auto" /></div>
+                  </div>
+                </div>
               </div>
-              <p className="text-lg sm:text-xl text-white/80 mb-6 sm:mb-8 leading-relaxed">
-                Every scroll on social media = $0 for you. Every scroll here = potential income.
+            </div>
+          </div>
+
+          {/* Trust Badges & Real Numbers */}
+          <div className="pt-12 sm:pt-16 animate-fade-in px-4" style={{ animationDelay: '1.2s' }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              <div className="glass-card rounded-2xl p-6 text-center backdrop-blur-2xl">
+                <div className="w-16 h-16 rounded-full bg-[hsl(340,82%,58%)]/20 flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-8 w-8 text-[hsl(340,82%,58%)]" />
+                </div>
+                <div className="text-3xl font-black text-white mb-2">$3,247</div>
+                <div className="text-white/60 text-sm">Average monthly earnings</div>
+              </div>
+              
+              <div className="glass-card rounded-2xl p-6 text-center backdrop-blur-2xl">
+                <div className="w-16 h-16 rounded-full bg-[hsl(280,70%,60%)]/20 flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-8 w-8 text-[hsl(280,70%,60%)]" />
+                </div>
+                <div className="text-3xl font-black text-white mb-2">24 Hours</div>
+                <div className="text-white/60 text-sm">Average time to first sale</div>
+              </div>
+              
+              <div className="glass-card rounded-2xl p-6 text-center backdrop-blur-2xl">
+                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
+                  <Lock className="h-8 w-8 text-white" />
+                </div>
+                <div className="text-3xl font-black text-white mb-2">100%</div>
+                <div className="text-white/60 text-sm">Secure payments guaranteed</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Proof - Live Activity */}
+          <div className="pt-12 sm:pt-16 animate-fade-in px-4" style={{ animationDelay: '1.4s' }}>
+            <div className="glass-card rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto backdrop-blur-2xl border border-[hsl(340,82%,58%)]/20">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-3 h-3 rounded-full bg-[hsl(340,82%,58%)] animate-pulse" />
+                <div className="text-white font-bold text-lg">Live Activity</div>
+              </div>
+              <div className="space-y-3">
+                {[
+                  { name: "Sarah M.", action: "just sold a fitness course for", amount: "$197", time: "2 min ago", icon: Video },
+                  { name: "Mike D.", action: "earned from product sale", amount: "$89", time: "5 min ago", icon: ShoppingBag },
+                  { name: "Jessica K.", action: "got their first 100 followers", amount: "", time: "8 min ago", icon: Users },
+                  { name: "Chris P.", action: "went live and earned", amount: "$543", time: "12 min ago", icon: Eye }
+                ].map((activity, i) => (
+                  <div key={i} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[hsl(340,82%,58%)] to-[hsl(280,70%,60%)] flex items-center justify-center">
+                        <activity.icon className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <div className="text-white/90 text-sm">
+                          <span className="font-bold">{activity.name}</span> {activity.action} {activity.amount && <span className="text-[hsl(340,82%,58%)] font-black">{activity.amount}</span>}
+                        </div>
+                        <div className="text-white/40 text-xs">{activity.time}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 text-center">
+                <div className="text-[hsl(340,82%,58%)] font-bold">+247 creators joined today</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonials */}
+          <div className="pt-12 sm:pt-16 animate-fade-in px-4" style={{ animationDelay: '1.6s' }}>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 text-center">
+              Real Creators. Real <span className="text-[hsl(340,82%,58%)]">Results</span>.
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {[
+                { name: "Alex Rivera", role: "Fitness Coach", earnings: "$12K/mo", quote: "I made more in my first month here than 2 years on other platforms combined. The AI listing tool is a game changer.", avatar: "💪" },
+                { name: "Emma Chen", role: "Art Teacher", earnings: "$8.5K/mo", quote: "Finally a platform that values creators. My students love the course format and I love the earnings!", avatar: "🎨" },
+                { name: "Jordan Lee", role: "Business Coach", earnings: "$15K/mo", quote: "Went from 0 to $15K monthly in 90 days. The audience ownership changed everything for my business.", avatar: "💼" }
+              ].map((testimonial, i) => (
+                <div key={i} className="glass-card rounded-3xl p-6 backdrop-blur-2xl">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(340,82%,58%)] to-[hsl(280,70%,60%)] flex items-center justify-center text-2xl">
+                      {testimonial.avatar}
+                    </div>
+                    <div>
+                      <div className="text-white font-bold">{testimonial.name}</div>
+                      <div className="text-white/60 text-sm">{testimonial.role}</div>
+                    </div>
+                  </div>
+                  <div className="text-white/80 text-sm leading-relaxed mb-4 italic">"{testimonial.quote}"</div>
+                  <div className="flex items-center gap-2">
+                    <Trophy className="h-5 w-5 text-[hsl(340,82%,58%)]" />
+                    <span className="text-[hsl(340,82%,58%)] font-black text-lg">{testimonial.earnings}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="pt-12 sm:pt-16 animate-fade-in px-4" style={{ animationDelay: '1.8s' }}>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 text-center">
+              Common <span className="text-[hsl(340,82%,58%)]">Questions</span>
+            </h2>
+            <div className="max-w-3xl mx-auto space-y-4">
+              {[
+                { q: "How do I get paid?", a: "Instant payouts to your bank account or digital wallet. You keep 90% of every sale." },
+                { q: "Is it really free?", a: "100% free to join and create. We only make money when you make money (10% platform fee)." },
+                { q: "How fast can I start selling?", a: "Upload a product photo, AI creates the listing in 10 seconds. You can be live in under 5 minutes." },
+                { q: "Do I need followers to start?", a: "Nope! Our feed algorithm shows your content to interested buyers from day one." }
+              ].map((faq, i) => (
+                <div key={i} className="glass-card rounded-2xl p-6 backdrop-blur-2xl">
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-[hsl(340,82%,58%)]/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-[hsl(340,82%,58%)] font-black">?</span>
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-white font-bold text-lg mb-2">{faq.q}</div>
+                      <div className="text-white/70 leading-relaxed">{faq.a}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Final CTA - urgency */}
+          <div className="text-center pt-12 sm:pt-16 pb-12 sm:pb-16 animate-fade-in px-4" style={{ animationDelay: '2s' }}>
+            <div className="glass-card rounded-3xl p-8 sm:p-12 max-w-3xl mx-auto backdrop-blur-2xl border-2 border-[hsl(340,82%,58%)]/30">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4 sm:mb-6">
+                Your Content.<br />Your Money.<br />Your Rules.
+              </div>
+              <p className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-10 leading-relaxed">
+                Every minute you wait is money left on the table.
                 <br className="hidden sm:block" />
-                <span className="text-[hsl(340,82%,58%)] font-bold">The choice is obvious.</span>
+                <span className="text-[hsl(340,82%,58%)] font-bold">Join 127,000+ creators already earning.</span>
               </p>
               <Button
                 size="lg"
-                className="w-full sm:w-auto text-lg sm:text-2xl px-10 sm:px-20 py-6 sm:py-10 bg-gradient-to-r from-[hsl(340,82%,58%)] via-[hsl(280,70%,60%)] to-[hsl(340,82%,58%)] hover:scale-105 text-white font-black rounded-2xl shadow-[0_0_60px_hsl(340,82%,58%/0.6)] hover:shadow-[0_0_80px_hsl(340,82%,58%/0.9)] transition-all duration-300 border-2 border-white/20 animate-pulse-glow bg-[length:200%_auto] animate-gradient"
+                className="w-full sm:w-auto text-xl sm:text-2xl px-12 sm:px-20 py-8 sm:py-10 bg-gradient-to-r from-[hsl(340,82%,58%)] via-[hsl(280,70%,60%)] to-[hsl(340,82%,58%)] hover:scale-105 text-white font-black rounded-2xl shadow-[0_0_60px_hsl(340,82%,58%/0.6)] hover:shadow-[0_0_80px_hsl(340,82%,58%/0.9)] transition-all duration-300 border-2 border-white/20 animate-pulse-glow bg-[length:200%_auto] animate-gradient"
                 onClick={() => navigate("/auth")}
               >
-                <Sparkles className="mr-3 h-6 w-6 sm:h-7 sm:w-7 fill-current" />
-                CLAIM YOUR ACCOUNT NOW
+                <Zap className="mr-3 h-7 w-7 fill-current" />
+                START EARNING TODAY
+                <ArrowRight className="ml-3 h-7 w-7" />
               </Button>
-              <div className="mt-4 sm:mt-6 flex items-center justify-center gap-4 sm:gap-6 text-white/60 text-xs sm:text-sm">
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <Heart className="h-3 w-3 sm:h-4 sm:w-4 fill-current text-[hsl(340,82%,58%)]" />
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-white/60 text-sm">
+                <div className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-[hsl(340,82%,58%)]" />
                   <span>Free forever</span>
                 </div>
-                <span>•</span>
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <Zap className="h-3 w-3 sm:h-4 sm:w-4 fill-current text-[hsl(280,70%,60%)]" />
-                  <span>Start earning today</span>
+                <div className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-[hsl(340,82%,58%)]" />
+                  <span>No credit card needed</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-[hsl(340,82%,58%)]" />
+                  <span>Start earning in 24hrs</span>
                 </div>
               </div>
             </div>
