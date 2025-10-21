@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2 } from "lucide-react";
+import { Loader2, Chrome } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Auth = () => {
@@ -41,8 +42,10 @@ const Auth = () => {
 
         toast({
           title: "Success!",
-          description: "Account created successfully. Please check your email to confirm.",
+          description: "Account created successfully.",
         });
+        
+        navigate("/");
       } else {
         const { error } = await supabase.auth.signInWithPassword({
           email,
@@ -69,6 +72,27 @@ const Auth = () => {
     }
   };
 
+  const handleSocialLogin = async (provider: 'google') => {
+    try {
+      setLoading(true);
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: `${window.location.origin}/`,
+        },
+      });
+
+      if (error) throw error;
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Social login failed",
+        variant: "destructive",
+      });
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4 gradient-primary">
       <Card className="w-full max-w-md shadow-glow">
@@ -86,6 +110,27 @@ const Auth = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {/* Social Login Buttons */}
+          <div className="space-y-3 mb-6">
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full"
+              onClick={() => handleSocialLogin('google')}
+              disabled={loading}
+            >
+              <Chrome className="mr-2 h-4 w-4" />
+              Continue with Google
+            </Button>
+          </div>
+
+          <div className="relative mb-6">
+            <Separator />
+            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-card px-2 text-xs text-muted-foreground">
+              Or continue with email
+            </span>
+          </div>
+
           <form onSubmit={handleAuth} className="space-y-4">
             {isSignUp && (
               <>
