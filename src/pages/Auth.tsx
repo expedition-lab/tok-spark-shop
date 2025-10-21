@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Chrome } from "lucide-react";
+import { Loader2, Chrome, Facebook } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Auth = () => {
@@ -72,7 +72,7 @@ const Auth = () => {
     }
   };
 
-  const handleSocialLogin = async (provider: 'google') => {
+  const handleSocialLogin = async (provider: 'google' | 'facebook') => {
     try {
       setLoading(true);
       const { error } = await supabase.auth.signInWithOAuth({
@@ -121,6 +121,17 @@ const Auth = () => {
             >
               <Chrome className="mr-2 h-4 w-4" />
               Continue with Google
+            </Button>
+            
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full"
+              onClick={() => handleSocialLogin('facebook')}
+              disabled={loading}
+            >
+              <Facebook className="mr-2 h-4 w-4" />
+              Continue with Facebook
             </Button>
           </div>
 
