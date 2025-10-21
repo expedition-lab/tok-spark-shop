@@ -44,7 +44,7 @@ export const Navigation = ({ user }: NavigationProps) => {
             <Button variant="ghost" size="icon" onClick={() => navigate("/")}>
               <Home className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" onClick={() => navigate("/create")}>
               <PlusCircle className="h-5 w-5" />
             </Button>
             <Button variant="ghost" size="icon">
