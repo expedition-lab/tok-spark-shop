@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Home, PlusCircle, Wallet, LogOut, User as UserIcon, LayoutDashboard } from "lucide-react";
+import { Home, PlusCircle, Wallet, LogOut, User as UserIcon, LayoutDashboard, BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo.png";
@@ -44,6 +44,9 @@ export const Navigation = ({ user }: NavigationProps) => {
             <Button variant="ghost" size="icon" onClick={() => navigate("/")}>
               <Home className="h-5 w-5" />
             </Button>
+            <Button variant="ghost" size="icon" onClick={() => navigate("/courses")}>
+              <BookOpen className="h-5 w-5" />
+            </Button>
             <Button variant="ghost" size="icon" onClick={() => navigate("/create")}>
               <PlusCircle className="h-5 w-5" />
             </Button>
@@ -71,6 +74,10 @@ export const Navigation = ({ user }: NavigationProps) => {
                 <DropdownMenuItem onClick={() => navigate("/dashboard")}>
                   <LayoutDashboard className="mr-2 h-4 w-4" />
                   Dashboard
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigate("/manage-courses")}>
+                  <BookOpen className="mr-2 h-4 w-4" />
+                  My Courses
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <UserIcon className="mr-2 h-4 w-4" />

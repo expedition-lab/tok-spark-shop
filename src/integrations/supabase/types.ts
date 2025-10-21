@@ -49,6 +49,135 @@ export type Database = {
           },
         ]
       }
+      course_purchases: {
+        Row: {
+          course_id: string
+          created_at: string | null
+          id: string
+          payment_method: string | null
+          purchase_price_cents: number
+          user_id: string
+        }
+        Insert: {
+          course_id: string
+          created_at?: string | null
+          id?: string
+          payment_method?: string | null
+          purchase_price_cents: number
+          user_id: string
+        }
+        Update: {
+          course_id?: string
+          created_at?: string | null
+          id?: string
+          payment_method?: string | null
+          purchase_price_cents?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "course_purchases_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      course_videos: {
+        Row: {
+          course_id: string
+          created_at: string | null
+          description: string | null
+          duration_seconds: number | null
+          id: string
+          is_preview: boolean | null
+          order_index: number
+          title: string
+          video_url: string
+        }
+        Insert: {
+          course_id: string
+          created_at?: string | null
+          description?: string | null
+          duration_seconds?: number | null
+          id?: string
+          is_preview?: boolean | null
+          order_index: number
+          title: string
+          video_url: string
+        }
+        Update: {
+          course_id?: string
+          created_at?: string | null
+          description?: string | null
+          duration_seconds?: number | null
+          id?: string
+          is_preview?: boolean | null
+          order_index?: number
+          title?: string
+          video_url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "course_videos_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      courses: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          creator_id: string
+          description: string | null
+          id: string
+          is_published: boolean | null
+          price_cents: number
+          thumbnail_url: string | null
+          title: string
+          total_enrollments: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          creator_id: string
+          description?: string | null
+          id?: string
+          is_published?: boolean | null
+          price_cents?: number
+          thumbnail_url?: string | null
+          title: string
+          total_enrollments?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          creator_id?: string
+          description?: string | null
+          id?: string
+          is_published?: boolean | null
+          price_cents?: number
+          thumbnail_url?: string | null
+          title?: string
+          total_enrollments?: number | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "courses_creator_id_fkey"
+            columns: ["creator_id"]
+            isOneToOne: false
+            referencedRelation: "creators"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       creators: {
         Row: {
           created_at: string
