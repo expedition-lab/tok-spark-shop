@@ -244,7 +244,7 @@ export default function CreateProduct() {
           </div>
 
           {/* Form Fields */}
-          <div className="space-y-4">
+          <div className="space-y-4 pb-24">
             <div>
               <Label htmlFor="title">Title *</Label>
               <Input
@@ -329,22 +329,27 @@ export default function CreateProduct() {
                 </div>
               </div>
             )}
+          </div>
 
-            <Button
-              onClick={handleSave}
-              disabled={saving || !title || !price || !image}
-              className="w-full bg-gradient-primary hover:opacity-90"
-              size="lg"
-            >
-              {saving ? (
-                <>
-                  <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  Publishing...
-                </>
-              ) : (
-                "Publish Product"
-              )}
-            </Button>
+          {/* Fixed Publish Button */}
+          <div className="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background via-background to-background/80 backdrop-blur-sm border-t">
+            <div className="container mx-auto max-w-2xl">
+              <Button
+                onClick={handleSave}
+                disabled={saving || !title || !price || !image}
+                className="w-full bg-gradient-primary hover:opacity-90 shadow-elegant text-lg font-semibold"
+                size="lg"
+              >
+                {saving ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    Publishing...
+                  </>
+                ) : (
+                  "Publish Product"
+                )}
+              </Button>
+            </div>
           </div>
         </div>
       </main>
