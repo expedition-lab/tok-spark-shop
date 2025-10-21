@@ -69,10 +69,10 @@ export const Hero = () => {
             <Button
               size="lg"
               className="w-full sm:w-auto text-lg sm:text-xl px-8 sm:px-16 py-6 sm:py-8 bg-transparent hover:bg-white/10 text-white font-bold rounded-2xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm hover:scale-105 transition-all duration-300"
-              onClick={() => navigate("/courses")}
+              onClick={() => navigate("/shop")}
             >
               <PlayCircle className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
-              See How It Works
+              Browse Products
             </Button>
           </div>
 
