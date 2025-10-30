@@ -539,6 +539,15 @@ export type Database = {
         }
         Returns: boolean
       }
+      process_purchase: {
+        Args: {
+          _buyer_id: string
+          _payment_method: string
+          _product_id: string
+          _quantity: number
+        }
+        Returns: Json
+      }
     }
     Enums: {
       app_role: "admin" | "creator" | "user"

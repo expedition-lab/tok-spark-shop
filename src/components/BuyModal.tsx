@@ -71,58 +71,20 @@ export const BuyModal = ({ open, onClose, product, user, onSuccess }: BuyModalPr
   const handleBuy = async () => {
     setProcessing(true);
     try {
-      // Check wallet balance
-      if (paymentMethod === "wallet") {
-        if ((walletBalance || 0) < total) {
-          toast({
-            title: "Insufficient balance",
-            description: "Please add funds to your wallet",
-            variant: "destructive",
-          });
-          return;
-        }
-      }
-
-      // Check points balance
-      if (paymentMethod === "points") {
-        if ((points || 0) < pointsRequired) {
-          toast({
-            title: "Insufficient points",
-            description: `You need ${pointsRequired} points but only have ${points}`,
-            variant: "destructive",
-          });
-          return;
-        }
-      }
-
-      // Create order
-      const { error: orderError } = await supabase.from("orders").insert({
-        buyer_id: user.id,
-        product_id: product.id,
-        creator_id: product.creator_id,
-        quantity,
-        total_cents: total,
-        status: "completed",
-        payment_method: paymentMethod,
+      // Call secure server-side purchase function
+      const { data, error } = await supabase.rpc('process_purchase', {
+        _buyer_id: user.id,
+        _product_id: product.id,
+        _quantity: quantity,
+        _payment_method: paymentMethod
       });
 
-      if (orderError) throw orderError;
+      if (error) throw error;
 
-      // Deduct from wallet or points
-      if (paymentMethod === "wallet") {
-        const { error: walletError } = await supabase
-          .from("wallets")
-          .update({ balance_cents: (walletBalance || 0) - total })
-          .eq("user_id", user.id);
-
-        if (walletError) throw walletError;
-      } else if (paymentMethod === "points") {
-        const { error: pointsError } = await supabase
-          .from("wallets")
-          .update({ points: (points || 0) - pointsRequired })
-          .eq("user_id", user.id);
-
-        if (pointsError) throw pointsError;
+      // Check if purchase was successful
+      const result = data as { success: boolean; error?: string };
+      if (!result.success) {
+        throw new Error(result.error || "Purchase failed");
       }
 
       toast({

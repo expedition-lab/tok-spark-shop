@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import { Camera, Loader2, Sparkles, X } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
+import { z } from "zod";
 
 type Category = "fashion" | "electronics" | "home" | "beauty" | "sports" | "art" | "other";
 
@@ -20,6 +21,15 @@ interface AIAnalysis {
   suggestedPrice: number;
   languages: string[];
 }
+
+// Input validation schema
+const productSchema = z.object({
+  title: z.string().trim().min(1, "Title is required").max(60, "Title must be less than 60 characters"),
+  description: z.string().trim().max(500, "Description must be less than 500 characters"),
+  price: z.number().positive("Price must be positive").max(1000000, "Price must be less than $10,000"),
+  stock: z.number().int("Stock must be a whole number").nonnegative("Stock cannot be negative").max(10000, "Stock must be less than 10,000"),
+  tags: z.array(z.string().trim().max(30, "Tag too long")).max(10, "Maximum 10 tags allowed")
+});
 
 export default function CreateProduct() {
   const navigate = useNavigate();
@@ -102,6 +112,24 @@ export default function CreateProduct() {
 
     setSaving(true);
     try {
+      // Validate input
+      const priceNum = parseFloat(price);
+      const stockNum = parseInt(stock);
+      
+      const validationResult = productSchema.safeParse({
+        title: title.trim(),
+        description: description.trim(),
+        price: priceNum,
+        stock: stockNum,
+        tags: tags.map(t => t.trim())
+      });
+
+      if (!validationResult.success) {
+        const errorMessage = validationResult.error.errors[0]?.message || "Invalid input";
+        toast.error(errorMessage);
+        return;
+      }
+
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) throw new Error("Not authenticated");
 
@@ -123,17 +151,17 @@ export default function CreateProduct() {
         creator = newCreator;
       }
 
-      // Create product
+      // Create product with validated data
       const { data: product, error: productError } = await supabase
         .from("products")
         .insert([{
           creator_id: creator.id,
-          title,
-          description,
+          title: validationResult.data.title,
+          description: validationResult.data.description,
           category,
-          price_cents: Math.round(parseFloat(price) * 100),
-          stock_quantity: parseInt(stock),
-          tags,
+          price_cents: Math.round(validationResult.data.price * 100),
+          stock_quantity: validationResult.data.stock,
+          tags: validationResult.data.tags,
           images: [image],
           ai_generated: true
         }])
@@ -148,7 +176,7 @@ export default function CreateProduct() {
         .insert({
           creator_id: creator.id,
           product_id: product.id,
-          content: description,
+          content: validationResult.data.description,
           media_url: image,
           media_type: "image"
         });
@@ -293,6 +321,8 @@ export default function CreateProduct() {
                   id="price"
                   type="number"
                   step="0.01"
+                  min="0.01"
+                  max="10000"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                   placeholder="0.00"
@@ -305,6 +335,8 @@ export default function CreateProduct() {
               <Input
                 id="stock"
                 type="number"
+                min="0"
+                max="10000"
                 value={stock}
                 onChange={(e) => setStock(e.target.value)}
                 placeholder="1"
