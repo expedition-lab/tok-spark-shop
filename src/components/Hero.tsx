@@ -32,21 +32,20 @@ export const Hero = () => {
           </div>
 
           {/* Main headline - TikTok style bold statement */}
-          <div className="text-center space-y-4 animate-slide-up">
-            <div className="relative inline-block">
-              <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-none glow-text tracking-tight">
-                STOP
-              </h1>
-            </div>
-            <div className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white/90 leading-tight">
+          <h1 className="text-center space-y-4 animate-slide-up block">
+            <span className="sr-only">TokMarket — The social marketplace where creators keep 90%</span>
+            <span aria-hidden="true" className="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-none glow-text tracking-tight">
+              STOP
+            </span>
+            <span aria-hidden="true" className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white/90 leading-tight">
               Scrolling For Free
-            </div>
-            <div className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none">
+            </span>
+            <span aria-hidden="true" className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none">
               <span className="bg-gradient-to-r from-[hsl(340,82%,58%)] via-[hsl(280,70%,60%)] to-[hsl(340,82%,58%)] bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
                 START EARNING
               </span>
-            </div>
-          </div>
+            </span>
+          </h1>
 
           {/* Explosive value prop */}
           <p className="text-center text-lg sm:text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed animate-fade-in px-4">
