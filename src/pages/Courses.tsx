@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import { Search, BookOpen, Users, DollarSign } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { PageSeo } from "@/components/PageSeo";
 
 const Courses = () => {
   const navigate = useNavigate();
@@ -47,6 +48,11 @@ const Courses = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+      <PageSeo
+        title="Browse creator-led courses on TokMarket"
+        description="Learn from expert creators with on-demand video courses across business, art, fitness, tech and more."
+        path="/courses"
+      />
       {user && <Navigation user={user} />}
       
       <main className="container mx-auto px-4 py-8 pt-24">
@@ -81,7 +87,9 @@ const Courses = () => {
               ))}
             </div>
           ) : courses && courses.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <>
+              <h2 className="sr-only">Course catalog</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {courses.map((course: any) => (
                 <Card 
                   key={course.id} 
