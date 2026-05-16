@@ -9,6 +9,7 @@ import { Loader2, ShoppingBag, ArrowLeft } from "lucide-react";
 import { getProductByHandle } from "@/lib/shopify";
 import { useCartStore, type ShopifyProduct } from "@/stores/cartStore";
 import { toast } from "sonner";
+import { PageSeo } from "@/components/PageSeo";
 
 const ProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
@@ -106,8 +107,34 @@ const ProductDetail = () => {
     v => v.node.id === selectedVariantId
   )?.node || product.node.variants.edges[0]?.node;
 
+  const productImage = product.node.images.edges[0]?.node?.url;
+  const productDescription = (product.node.description || product.node.title).slice(0, 160);
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.node.title,
+    description: product.node.description || product.node.title,
+    image: productImage ? [productImage] : undefined,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: selectedVariant?.price?.currencyCode || "USD",
+      price: parseFloat(selectedVariant?.price?.amount || "0").toFixed(2),
+      availability: selectedVariant?.availableForSale
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <PageSeo
+        title={`${product.node.title} — TokMarket`}
+        description={productDescription}
+        path={`/product/${handle}`}
+        image={productImage}
+        type="product"
+        jsonLd={productJsonLd}
+      />
       <Navigation user={user} />
       
       <main className="pt-20 pb-12 px-4">
