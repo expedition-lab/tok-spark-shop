@@ -151,7 +151,8 @@ const Courses = () => {
                   </CardFooter>
                 </Card>
               ))}
-            </div>
+              </div>
+            </>
           ) : (
             <div className="text-center py-16">
               <BookOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
