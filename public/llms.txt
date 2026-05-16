@@ -1,0 +1,17 @@
+# TokMarket
+
+> TokMarket is a TikTok-style social marketplace where creators sell products, teach courses, and earn 90% of every sale with AI-powered listings and instant checkout.
+
+## Pages
+
+- [Home](/): Discover trending creators, products, and courses in a social feed.
+- [Shop](/shop): Browse and buy products from independent creators.
+- [Courses](/courses): Learn from creator-led video courses across categories.
+- [Create a product](/create): List a new product with AI-generated copy.
+- [Sign in](/auth): Log in or create a TokMarket account.
+
+## Optional
+
+- [Creator dashboard](/dashboard): Analytics and order management for sellers.
+- [Manage courses](/manage-courses): Author and publish course content.
+- [Wallet](/wallet): Points, balance, and payouts.
