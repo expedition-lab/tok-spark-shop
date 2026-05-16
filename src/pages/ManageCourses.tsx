@@ -12,6 +12,7 @@ import { Switch } from "@/components/ui/switch";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { PlusCircle, Edit, Trash2, Video } from "lucide-react";
+import { PageSeo } from "@/components/PageSeo";
 
 const ManageCourses = () => {
   const navigate = useNavigate();
@@ -127,6 +128,11 @@ const ManageCourses = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+      <PageSeo
+        title="My courses — TokMarket"
+        description="Create, edit, and publish your TokMarket video courses, and manage their lessons."
+        path="/manage-courses"
+      />
       <Navigation user={user} />
       
       <main className="container mx-auto px-4 py-8 pt-24">
@@ -217,7 +223,9 @@ const ManageCourses = () => {
           </div>
 
           {courses && courses.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <>
+              <h2 className="sr-only">Your courses</h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {courses.map((course: any) => (
                 <Card key={course.id}>
                   <CardHeader>
@@ -261,6 +269,7 @@ const ManageCourses = () => {
                     <Button
                       variant="outline"
                       size="sm"
+                      aria-label={`Edit ${course.title}`}
                       onClick={() => navigate(`/manage-courses/${course.id}/edit`)}
                     >
                       <Edit className="h-4 w-4" />
@@ -268,6 +277,7 @@ const ManageCourses = () => {
                     <Button
                       variant="outline"
                       size="sm"
+                      aria-label={`Delete ${course.title}`}
                       onClick={() => {
                         if (confirm("Delete this course?")) {
                           deleteCourseMutation.mutate(course.id);

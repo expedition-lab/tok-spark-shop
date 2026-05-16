@@ -20,6 +20,7 @@ import {
   Trash2,
   Edit
 } from "lucide-react";
+import { PageSeo } from "@/components/PageSeo";
 
 interface Product {
   id: string;
@@ -174,6 +175,11 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
+      <PageSeo
+        title="Creator dashboard — TokMarket"
+        description="Manage your TokMarket shop: track revenue, orders, products, and engagement in one place."
+        path="/dashboard"
+      />
       <Navigation user={user} />
       
       <main className="container mx-auto px-4 py-6 mt-16">
@@ -197,6 +203,7 @@ export default function Dashboard() {
         </div>
 
         {/* Stats Cards */}
+        <h2 className="sr-only">Performance overview</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
@@ -333,6 +340,7 @@ export default function Dashboard() {
                           <Button 
                             variant="destructive" 
                             size="sm"
+                            aria-label={`Delete ${product.title}`}
                             onClick={() => deleteProduct(product.id)}
                           >
                             <Trash2 className="w-3 h-3" />
