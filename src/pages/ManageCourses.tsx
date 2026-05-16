@@ -289,7 +289,8 @@ const ManageCourses = () => {
                   </CardFooter>
                 </Card>
               ))}
-            </div>
+              </div>
+            </>
           ) : (
             <Card>
               <CardContent className="text-center py-16">
