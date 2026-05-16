@@ -226,10 +226,11 @@ export default function CreateProduct() {
                 </button>
               ) : (
                 <div className="relative">
-                  <img src={image} alt="Product" className="w-full aspect-square object-cover rounded-2xl" />
+                  <img src={image} alt="Uploaded product photo preview" className="w-full aspect-square object-cover rounded-2xl" />
                   <Button
                     variant="destructive"
                     size="icon"
+                    aria-label="Remove uploaded photo"
                     className="absolute top-2 right-2"
                     onClick={() => {
                       setImage(null);
@@ -353,7 +354,7 @@ export default function CreateProduct() {
                       className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm flex items-center gap-2"
                     >
                       #{tag}
-                      <button onClick={() => removeTag(tag)} className="hover:text-destructive">
+                      <button onClick={() => removeTag(tag)} aria-label={`Remove tag ${tag}`} className="hover:text-destructive">
                         <X className="w-3 h-3" />
                       </button>
                     </span>

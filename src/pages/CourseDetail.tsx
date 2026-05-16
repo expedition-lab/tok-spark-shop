@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
 import { BookOpen, PlayCircle, Lock, DollarSign, Users, Clock } from "lucide-react";
+import { PageSeo } from "@/components/PageSeo";
 
 const CourseDetail = () => {
   const { id } = useParams();
@@ -148,8 +149,30 @@ const CourseDetail = () => {
   const sortedVideos = videos.sort((a: any, b: any) => a.order_index - b.order_index);
   const totalDuration = videos.reduce((acc: number, v: any) => acc + (v.duration_seconds || 0), 0);
 
+  const creatorName = course.creators?.[0]?.shop_name || course.creators?.[0]?.profiles?.username || "TokMarket creator";
+  const courseJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: course.title,
+    description: course.description || course.title,
+    provider: {
+      "@type": "Organization",
+      name: "TokMarket",
+      sameAs: "https://tok-spark-shop.lovable.app/",
+    },
+    author: { "@type": "Person", name: creatorName },
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+      <PageSeo
+        title={`${course.title} — TokMarket Courses`}
+        description={(course.description || course.title).slice(0, 160)}
+        path={`/courses/${course.id}`}
+        image={course.thumbnail_url || undefined}
+        type="article"
+        jsonLd={courseJsonLd}
+      />
       {user && <Navigation user={user} />}
       
       <main className="container mx-auto px-4 py-8 pt-24">

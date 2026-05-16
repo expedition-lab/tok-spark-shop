@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Chrome, Facebook } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { PageSeo } from "@/components/PageSeo";
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -95,6 +96,12 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 gradient-primary">
+      <PageSeo
+        title={isSignUp ? "Sign up for TokMarket" : "Sign in to TokMarket"}
+        description="Join TokMarket to shop creator products, take courses, and start selling with AI-powered listings."
+        path="/auth"
+      />
+      <h1 className="sr-only">{isSignUp ? "Create your TokMarket account" : "Sign in to TokMarket"}</h1>
       <Card className="w-full max-w-md shadow-glow">
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">

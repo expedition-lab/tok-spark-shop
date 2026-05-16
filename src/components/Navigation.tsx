@@ -41,25 +41,25 @@ export const Navigation = ({ user }: NavigationProps) => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" onClick={() => navigate("/")}>
+            <Button variant="ghost" size="icon" aria-label="Home" onClick={() => navigate("/")}>
               <Home className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" onClick={() => navigate("/shop")}>
+            <Button variant="ghost" size="icon" aria-label="Shop" onClick={() => navigate("/shop")}>
               <ShoppingBag className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" onClick={() => navigate("/courses")}>
+            <Button variant="ghost" size="icon" aria-label="Courses" onClick={() => navigate("/courses")}>
               <BookOpen className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" onClick={() => navigate("/create")}>
+            <Button variant="ghost" size="icon" aria-label="Create product" onClick={() => navigate("/create")}>
               <PlusCircle className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" onClick={() => navigate("/wallet")}>
+            <Button variant="ghost" size="icon" aria-label="Wallet" onClick={() => navigate("/wallet")}>
               <Wallet className="h-5 w-5" />
             </Button>
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full">
+                <Button variant="ghost" size="icon" aria-label="Account menu" className="rounded-full">
                   <Avatar className="h-8 w-8">
                     <AvatarImage src={user?.user_metadata?.avatar_url} />
                     <AvatarFallback className="bg-primary text-primary-foreground">

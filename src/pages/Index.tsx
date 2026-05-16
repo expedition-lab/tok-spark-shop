@@ -6,6 +6,7 @@ import { Hero } from "@/components/Hero";
 import { Feed } from "@/components/Feed";
 import { Navigation } from "@/components/Navigation";
 import { Loader2 } from "lucide-react";
+import { PageSeo } from "@/components/PageSeo";
 
 const Index = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -44,8 +45,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSeo
+        title="Your TokMarket feed — shop creator products"
+        description="Browse the latest products, courses, and creator posts in your personalized TokMarket feed."
+        path="/"
+      />
       <Navigation user={user} />
       <main className="pt-16">
+        <h1 className="sr-only">Your TokMarket feed</h1>
         <Feed user={user} />
       </main>
     </div>

@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Loader2, Search, ShoppingBag, Filter } from "lucide-react";
 import { getProducts } from "@/lib/shopify";
 import { useCartStore, type ShopifyProduct } from "@/stores/cartStore";
+import { PageSeo } from "@/components/PageSeo";
 
 const Shop = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -82,6 +83,11 @@ const Shop = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageSeo
+        title="Shop creator products on TokMarket"
+        description="Browse and buy curated products from independent creators on TokMarket — fast checkout, secure payments."
+        path="/shop"
+      />
       <Navigation user={user} />
       
       <main className="pt-20 pb-12 px-4">
@@ -99,6 +105,8 @@ const Shop = () => {
               </div>
               <CartDrawer />
             </div>
+
+            <h2 className="sr-only">Search and filter products</h2>
 
             {/* Search & Filters */}
             <div className="flex flex-col sm:flex-row gap-4 max-w-2xl">
@@ -156,7 +164,9 @@ const Shop = () => {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <>
+              <h2 className="sr-only">Product results</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredProducts.map((product) => {
                 const image = product.node.images.edges[0]?.node;
                 const price = product.node.priceRange.minVariantPrice;
@@ -213,7 +223,8 @@ const Shop = () => {
                   </div>
                 );
               })}
-            </div>
+              </div>
+            </>
           )}
         </div>
       </main>

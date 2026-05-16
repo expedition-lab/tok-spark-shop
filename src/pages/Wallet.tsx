@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Wallet as WalletIcon, TrendingUp, ShoppingBag, Coins, Plus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { PageSeo } from "@/components/PageSeo";
 
 interface WalletData {
   points: number;
@@ -104,6 +105,11 @@ export default function Wallet() {
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
+      <PageSeo
+        title="Wallet — TokMarket"
+        description="Track your TokMarket points, cash balance, and purchase history in one secure wallet."
+        path="/wallet"
+      />
       <Navigation user={user} />
 
       <main className="container mx-auto px-4 py-6 mt-16 max-w-4xl">
@@ -115,6 +121,7 @@ export default function Wallet() {
         </div>
 
         {/* Balance Cards */}
+        <h2 className="sr-only">Balances overview</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <Card className="shadow-glow">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
