@@ -1,403 +1,424 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Sparkles, ShoppingBag, Zap, TrendingUp, Users, Video, DollarSign, Target, Heart, Star, PlayCircle, Check, Shield, Smartphone, Lock, Clock, ArrowRight, Trophy, Eye } from "lucide-react";
-import logo from "@/assets/logo.png";
-import heroBg from "@/assets/hero-bg.jpg";
+
+const SUNSET = {
+  orange: "#ff6b35",
+  amber: "#f7931e",
+  magenta: "#e84393",
+  violet: "#6c5ce7",
+};
 
 export const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-[hsl(240,10%,3.9%)]">
-      {/* Animated mesh gradient background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(340,82%,20%)] via-[hsl(240,10%,3.9%)] to-[hsl(280,70%,20%)] opacity-60" />
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-[hsl(340,82%,58%)] opacity-20 blur-[120px] animate-pulse-slow" />
-          <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[hsl(280,70%,60%)] opacity-20 blur-[120px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
-          <div className="absolute bottom-[-10%] left-[30%] w-[700px] h-[700px] rounded-full bg-[hsl(340,82%,58%)] opacity-15 blur-[120px] animate-pulse-slow" style={{ animationDelay: '4s' }} />
-        </div>
-      </div>
+    <div className="bg-[#0a0a0a] text-white font-body overflow-x-hidden min-h-screen">
+      <span className="sr-only">
+        <h1>TokMarket — The social marketplace where creators keep 90%</h1>
+      </span>
 
-      {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 md:p-6">
-        <div className="space-y-8 max-w-7xl mx-auto w-full">
-          
-          {/* Logo with neon glow */}
-          <div className="flex justify-center animate-fade-in">
-            <div className="relative">
-              <div className="absolute inset-0 bg-[hsl(340,82%,58%)] rounded-full blur-3xl opacity-60 animate-pulse-glow" />
-              <img src={logo} alt="TokMarket" className="relative w-24 h-24 md:w-32 md:h-32 drop-shadow-2xl animate-float" />
-            </div>
+      <div className="max-w-7xl mx-auto px-4 py-20">
+        {/* HERO */}
+        <section className="text-center mb-32 relative">
+          <div
+            className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 blur-[120px] opacity-20 pointer-events-none"
+            style={{ background: SUNSET.violet }}
+          />
+          <div
+            className="inline-block bg-white text-black font-display text-2xl px-4 py-1 -rotate-2 mb-8"
+            style={{ boxShadow: `4px 4px 0px ${SUNSET.magenta}` }}
+          >
+            LIMITED SPOTS AVAILABLE
           </div>
-
-          {/* Main headline - TikTok style bold statement */}
-          <h1 className="text-center space-y-4 animate-slide-up block">
-            <span className="sr-only">TokMarket — The social marketplace where creators keep 90%</span>
-            <span aria-hidden="true" className="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-none glow-text tracking-tight">
+          <div
+            aria-hidden="true"
+            className="font-display text-[clamp(5rem,15vw,12rem)] leading-[0.85] tracking-tighter"
+          >
+            <span className="block text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
               STOP
             </span>
-            <span aria-hidden="true" className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white/90 leading-tight">
-              Scrolling For Free
+            <span
+              className="block italic text-transparent bg-clip-text animate-pulse"
+              style={{
+                backgroundImage: `linear-gradient(to right, ${SUNSET.orange}, ${SUNSET.magenta}, ${SUNSET.violet})`,
+              }}
+            >
+              START EARNING
             </span>
-            <span aria-hidden="true" className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none">
-              <span className="bg-gradient-to-r from-[hsl(340,82%,58%)] via-[hsl(280,70%,60%)] to-[hsl(340,82%,58%)] bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
-                START EARNING
-              </span>
+          </div>
+          <p className="mt-8 max-w-2xl mx-auto text-xl text-gray-400">
+            Stop giving away your content for free. You keep{" "}
+            <span
+              className="font-bold underline decoration-2 underline-offset-4"
+              style={{ color: SUNSET.amber }}
+            >
+              90% of every sale
             </span>
-          </h1>
-
-          {/* Explosive value prop */}
-          <p className="text-center text-lg sm:text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed animate-fade-in px-4">
-            Stop giving away your content for free on platforms that keep 100% of the profit.
-            <br className="hidden sm:block" />
-            Here, <span className="text-[hsl(340,82%,58%)] font-bold">you keep 90%</span> of every sale. 
-            Sell products. Teach courses. Go live. <span className="text-white font-bold">Get PAID.</span>
+            . Build once, earn forever.
           </p>
-
-          {/* Dual CTA with urgency */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-scale-in px-4">
-            <Button
-              size="lg"
-              className="w-full sm:w-auto text-lg sm:text-xl px-8 sm:px-16 py-6 sm:py-8 bg-gradient-to-r from-[hsl(340,82%,58%)] to-[hsl(340,82%,48%)] hover:from-[hsl(340,82%,68%)] hover:to-[hsl(340,82%,58%)] text-white font-black rounded-2xl shadow-[0_0_40px_hsl(340,82%,58%/0.6)] hover:shadow-[0_0_60px_hsl(340,82%,58%/0.8)] hover:scale-105 transition-all duration-300 border-2 border-[hsl(340,82%,68%)]"
+          <div className="mt-12 flex flex-wrap justify-center gap-6">
+            <button
               onClick={() => navigate("/auth")}
+              className="group relative text-white font-display text-3xl px-12 py-4 transition-all hover:translate-x-[4px] hover:translate-y-[4px] cursor-pointer"
+              style={{
+                background: SUNSET.magenta,
+                boxShadow: `8px 8px 0px ${SUNSET.violet}`,
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "none")}
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.boxShadow = `8px 8px 0px ${SUNSET.violet}`)
+              }
             >
-              <Zap className="mr-2 h-5 w-5 sm:h-6 sm:w-6 fill-current" />
               JOIN THE MOVEMENT
-            </Button>
-            <Button
-              size="lg"
-              className="w-full sm:w-auto text-lg sm:text-xl px-8 sm:px-16 py-6 sm:py-8 bg-transparent hover:bg-white/10 text-white font-bold rounded-2xl border-2 border-white/30 hover:border-white/60 backdrop-blur-sm hover:scale-105 transition-all duration-300"
+            </button>
+            <button
               onClick={() => navigate("/shop")}
+              className="border-2 text-white font-display text-3xl px-12 py-4 hover:bg-white/5 transition-colors cursor-pointer"
+              style={{ borderColor: SUNSET.violet }}
             >
-              <PlayCircle className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
-              Browse Products
-            </Button>
+              BROWSE PRODUCTS
+            </button>
           </div>
+        </section>
 
-          {/* Live stats ticker - social proof */}
-          <div className="glass-card rounded-3xl p-6 sm:p-8 max-w-5xl mx-auto animate-fade-in backdrop-blur-2xl" style={{ animationDelay: '0.2s' }}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
-              <div className="text-center border-r border-white/10 last:border-r-0">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-[hsl(340,82%,58%)] mb-1 sm:mb-2 animate-pulse">$47M+</div>
-                <div className="text-white/60 text-xs sm:text-sm font-medium">Paid to Creators</div>
+        {/* STATS */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-32">
+          {[
+            { v: "$47M+", l: "Paid to creators", c: SUNSET.orange },
+            { v: "127K+", l: "Active creators", c: SUNSET.magenta },
+            { v: "890K+", l: "Products & Courses", c: SUNSET.violet },
+            { v: "24/7", l: "You're making $$$", c: SUNSET.amber },
+          ].map((s) => (
+            <div
+              key={s.l}
+              className="border p-6 backdrop-blur-sm transition-colors"
+              style={{
+                borderColor: `${s.c}4D`,
+                background: `${s.c}0D`,
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = s.c)}
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.borderColor = `${s.c}4D`)
+              }
+            >
+              <div className="font-display text-5xl" style={{ color: s.c }}>
+                {s.v}
               </div>
-              <div className="text-center border-r border-white/10 md:border-r">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-[hsl(280,70%,60%)] mb-1 sm:mb-2 animate-pulse" style={{ animationDelay: '0.5s' }}>127K+</div>
-                <div className="text-white/60 text-xs sm:text-sm font-medium">Active Creators</div>
-              </div>
-              <div className="text-center border-r border-white/10 last:border-r-0">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-1 sm:mb-2 animate-pulse" style={{ animationDelay: '1s' }}>890K+</div>
-                <div className="text-white/60 text-xs sm:text-sm font-medium">Products & Courses</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-black text-[hsl(340,82%,58%)] mb-1 sm:mb-2 animate-pulse" style={{ animationDelay: '1.5s' }}>24/7</div>
-                <div className="text-white/60 text-xs sm:text-sm font-medium">You're Making $$$</div>
+              <div className="text-xs uppercase tracking-widest text-gray-500">
+                {s.l}
               </div>
             </div>
-          </div>
-
-          {/* Feature grid - what you can do */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 pt-8 sm:pt-12 max-w-6xl mx-auto animate-fade-in px-4" style={{ animationDelay: '0.4s' }}>
-            
-            <div className="glass-card-hover glass-card rounded-3xl p-6 sm:p-8 group cursor-pointer backdrop-blur-2xl">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[hsl(340,82%,58%)] to-[hsl(340,82%,48%)] flex items-center justify-center mb-4 sm:mb-6 shadow-[0_0_30px_hsl(340,82%,58%/0.5)] group-hover:shadow-[0_0_50px_hsl(340,82%,58%/0.8)] transition-all">
-                <ShoppingBag className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
-              </div>
-              <h3 className="text-white font-black text-xl sm:text-2xl mb-2 sm:mb-3">Sell Anything</h3>
-              <p className="text-white/70 text-sm sm:text-base leading-relaxed">
-                Physical products, digital downloads, merch—AI writes your listings in 10 seconds
-              </p>
-              <div className="mt-4 sm:mt-6 flex items-center text-[hsl(340,82%,58%)] font-bold text-sm sm:text-base">
-                <DollarSign className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span>Instant Setup</span>
-              </div>
-            </div>
-
-            <div className="glass-card-hover glass-card rounded-3xl p-6 sm:p-8 group cursor-pointer backdrop-blur-2xl">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[hsl(280,70%,60%)] to-[hsl(280,70%,50%)] flex items-center justify-center mb-4 sm:mb-6 shadow-[0_0_30px_hsl(280,70%,60%/0.5)] group-hover:shadow-[0_0_50px_hsl(280,70%,60%/0.8)] transition-all">
-                <Video className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
-              </div>
-              <h3 className="text-white font-black text-xl sm:text-2xl mb-2 sm:mb-3">Teach & Coach</h3>
-              <p className="text-white/70 text-sm sm:text-base leading-relaxed">
-                Upload courses, go live, build a following. Turn your knowledge into recurring income
-              </p>
-              <div className="mt-4 sm:mt-6 flex items-center text-[hsl(280,70%,60%)] font-bold text-sm sm:text-base">
-                <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span>Scale Fast</span>
-              </div>
-            </div>
-
-            <div className="glass-card-hover glass-card rounded-3xl p-6 sm:p-8 group cursor-pointer backdrop-blur-2xl">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-white to-white/80 flex items-center justify-center mb-4 sm:mb-6 shadow-[0_0_30px_white/0.3] group-hover:shadow-[0_0_50px_white/0.5] transition-all">
-                <Target className="h-7 w-7 sm:h-8 sm:w-8 text-[hsl(240,10%,3.9%)]" />
-              </div>
-              <h3 className="text-white font-black text-xl sm:text-2xl mb-2 sm:mb-3">Own Your Audience</h3>
-              <p className="text-white/70 text-sm sm:text-base leading-relaxed">
-                No algorithm BS. Your fans = your income. Build once, earn forever
-              </p>
-              <div className="mt-4 sm:mt-6 flex items-center text-white font-bold text-sm sm:text-base">
-                <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-current" />
-                <span>True Ownership</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Creator types - who's winning */}
-          <div className="pt-8 sm:pt-12 animate-fade-in px-4" style={{ animationDelay: '0.6s' }}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-6 sm:mb-8 text-center">
-              WHO'S <span className="text-[hsl(340,82%,58%)]">CRUSHING IT</span> HERE?
-            </h2>
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto">
-              {[
-                { icon: '💪', name: 'Fitness Coaches' },
-                { icon: '🎨', name: 'Artists' },
-                { icon: '🎵', name: 'Musicians' },
-                { icon: '📚', name: 'Teachers' },
-                { icon: '🍳', name: 'Food Creators' },
-                { icon: '💼', name: 'Business Experts' },
-                { icon: '🎮', name: 'Gamers' },
-                { icon: '✨', name: 'Lifestyle Influencers' }
-              ].map((category, index) => (
-                <div 
-                  key={category.name}
-                  className="glass-card px-4 sm:px-6 py-2 sm:py-3 rounded-full text-white/90 hover:text-white hover:scale-110 hover:bg-white/10 transition-all duration-300 cursor-pointer text-sm sm:text-base backdrop-blur-2xl border border-white/10 hover:border-white/30 animate-scale-in"
-                  style={{ animationDelay: `${0.7 + index * 0.05}s` }}
-                >
-                  <span className="mr-2">{category.icon}</span>
-                  {category.name}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Comparison Table - TokMarket vs Others */}
-          <div className="pt-12 sm:pt-16 animate-fade-in px-4" style={{ animationDelay: '1s' }}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-8 sm:mb-12 text-center">
-              Why Creators Are <span className="text-[hsl(340,82%,58%)]">Switching</span>
-            </h2>
-            <div className="glass-card rounded-3xl p-6 sm:p-8 max-w-5xl mx-auto backdrop-blur-2xl overflow-x-auto">
-              <div className="min-w-[600px]">
-                <div className="grid grid-cols-4 gap-4 mb-6">
-                  <div className="text-white/60 text-sm font-medium"></div>
-                  <div className="text-center">
-                    <div className="text-[hsl(340,82%,58%)] font-black text-lg mb-2">TokMarket</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-white/40 font-bold text-lg mb-2">Platform A</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-white/40 font-bold text-lg mb-2">Platform B</div>
-                  </div>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
-                    <div className="text-white/80 font-medium text-sm">You Keep</div>
-                    <div className="text-center text-[hsl(340,82%,58%)] font-black text-2xl">90%</div>
-                    <div className="text-center text-white/40 font-bold text-xl">0%</div>
-                    <div className="text-center text-white/40 font-bold text-xl">0%</div>
-                  </div>
-                  
-                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
-                    <div className="text-white/80 font-medium text-sm">Sell Products</div>
-                    <div className="text-center"><Check className="h-6 w-6 text-[hsl(340,82%,58%)] mx-auto" /></div>
-                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
-                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
-                  </div>
-                  
-                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
-                    <div className="text-white/80 font-medium text-sm">Sell Courses</div>
-                    <div className="text-center"><Check className="h-6 w-6 text-[hsl(340,82%,58%)] mx-auto" /></div>
-                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
-                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
-                  </div>
-                  
-                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
-                    <div className="text-white/80 font-medium text-sm">Own Your Audience</div>
-                    <div className="text-center"><Check className="h-6 w-6 text-[hsl(340,82%,58%)] mx-auto" /></div>
-                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
-                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
-                  </div>
-                  
-                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
-                    <div className="text-white/80 font-medium text-sm">AI Listing Creator</div>
-                    <div className="text-center"><Check className="h-6 w-6 text-[hsl(340,82%,58%)] mx-auto" /></div>
-                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
-                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
-                  </div>
-                  
-                  <div className="grid grid-cols-4 gap-4 py-4 border-t border-white/10">
-                    <div className="text-white/80 font-medium text-sm">Algorithm BS</div>
-                    <div className="text-center text-white/20 font-bold text-2xl">✕</div>
-                    <div className="text-center"><Check className="h-6 w-6 text-white/40 mx-auto" /></div>
-                    <div className="text-center"><Check className="h-6 w-6 text-white/40 mx-auto" /></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Trust Badges & Real Numbers */}
-          <div className="pt-12 sm:pt-16 animate-fade-in px-4" style={{ animationDelay: '1.2s' }}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <div className="glass-card rounded-2xl p-6 text-center backdrop-blur-2xl">
-                <div className="w-16 h-16 rounded-full bg-[hsl(340,82%,58%)]/20 flex items-center justify-center mx-auto mb-4">
-                  <Shield className="h-8 w-8 text-[hsl(340,82%,58%)]" />
-                </div>
-                <div className="text-3xl font-black text-white mb-2">$3,247</div>
-                <div className="text-white/60 text-sm">Average monthly earnings</div>
-              </div>
-              
-              <div className="glass-card rounded-2xl p-6 text-center backdrop-blur-2xl">
-                <div className="w-16 h-16 rounded-full bg-[hsl(280,70%,60%)]/20 flex items-center justify-center mx-auto mb-4">
-                  <Clock className="h-8 w-8 text-[hsl(280,70%,60%)]" />
-                </div>
-                <div className="text-3xl font-black text-white mb-2">24 Hours</div>
-                <div className="text-white/60 text-sm">Average time to first sale</div>
-              </div>
-              
-              <div className="glass-card rounded-2xl p-6 text-center backdrop-blur-2xl">
-                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
-                  <Lock className="h-8 w-8 text-white" />
-                </div>
-                <div className="text-3xl font-black text-white mb-2">100%</div>
-                <div className="text-white/60 text-sm">Secure payments guaranteed</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Social Proof - Live Activity */}
-          <div className="pt-12 sm:pt-16 animate-fade-in px-4" style={{ animationDelay: '1.4s' }}>
-            <div className="glass-card rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto backdrop-blur-2xl border border-[hsl(340,82%,58%)]/20">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-3 h-3 rounded-full bg-[hsl(340,82%,58%)] animate-pulse" />
-                <div className="text-white font-bold text-lg">Live Activity</div>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { name: "Sarah M.", action: "just sold a fitness course for", amount: "$197", time: "2 min ago", icon: Video },
-                  { name: "Mike D.", action: "earned from product sale", amount: "$89", time: "5 min ago", icon: ShoppingBag },
-                  { name: "Jessica K.", action: "got their first 100 followers", amount: "", time: "8 min ago", icon: Users },
-                  { name: "Chris P.", action: "went live and earned", amount: "$543", time: "12 min ago", icon: Eye }
-                ].map((activity, i) => (
-                  <div key={i} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[hsl(340,82%,58%)] to-[hsl(280,70%,60%)] flex items-center justify-center">
-                        <activity.icon className="h-5 w-5 text-white" />
-                      </div>
-                      <div>
-                        <div className="text-white/90 text-sm">
-                          <span className="font-bold">{activity.name}</span> {activity.action} {activity.amount && <span className="text-[hsl(340,82%,58%)] font-black">{activity.amount}</span>}
-                        </div>
-                        <div className="text-white/40 text-xs">{activity.time}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 text-center">
-                <div className="text-[hsl(340,82%,58%)] font-bold">+247 creators joined today</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Testimonials */}
-          <div className="pt-12 sm:pt-16 animate-fade-in px-4" style={{ animationDelay: '1.6s' }}>
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 text-center">
-              Real Creators. Real <span className="text-[hsl(340,82%,58%)]">Results</span>.
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {[
-                { name: "Alex Rivera", role: "Fitness Coach", earnings: "$12K/mo", quote: "I made more in my first month here than 2 years on other platforms combined. The AI listing tool is a game changer.", avatar: "💪" },
-                { name: "Emma Chen", role: "Art Teacher", earnings: "$8.5K/mo", quote: "Finally a platform that values creators. My students love the course format and I love the earnings!", avatar: "🎨" },
-                { name: "Jordan Lee", role: "Business Coach", earnings: "$15K/mo", quote: "Went from 0 to $15K monthly in 90 days. The audience ownership changed everything for my business.", avatar: "💼" }
-              ].map((testimonial, i) => (
-                <div key={i} className="glass-card rounded-3xl p-6 backdrop-blur-2xl">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(340,82%,58%)] to-[hsl(280,70%,60%)] flex items-center justify-center text-2xl">
-                      {testimonial.avatar}
-                    </div>
-                    <div>
-                      <div className="text-white font-bold">{testimonial.name}</div>
-                      <div className="text-white/60 text-sm">{testimonial.role}</div>
-                    </div>
-                  </div>
-                  <div className="text-white/80 text-sm leading-relaxed mb-4 italic">"{testimonial.quote}"</div>
-                  <div className="flex items-center gap-2">
-                    <Trophy className="h-5 w-5 text-[hsl(340,82%,58%)]" />
-                    <span className="text-[hsl(340,82%,58%)] font-black text-lg">{testimonial.earnings}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* FAQ Section */}
-          <div className="pt-12 sm:pt-16 animate-fade-in px-4" style={{ animationDelay: '1.8s' }}>
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 text-center">
-              Common <span className="text-[hsl(340,82%,58%)]">Questions</span>
-            </h2>
-            <div className="max-w-3xl mx-auto space-y-4">
-              {[
-                { q: "How do I get paid?", a: "Instant payouts to your bank account or digital wallet. You keep 90% of every sale." },
-                { q: "Is it really free?", a: "100% free to join and create. We only make money when you make money (10% platform fee)." },
-                { q: "How fast can I start selling?", a: "Upload a product photo, AI creates the listing in 10 seconds. You can be live in under 5 minutes." },
-                { q: "Do I need followers to start?", a: "Nope! Our feed algorithm shows your content to interested buyers from day one." }
-              ].map((faq, i) => (
-                <div key={i} className="glass-card rounded-2xl p-6 backdrop-blur-2xl">
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-[hsl(340,82%,58%)]/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-[hsl(340,82%,58%)] font-black">?</span>
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-white font-bold text-lg mb-2">{faq.q}</div>
-                      <div className="text-white/70 leading-relaxed">{faq.a}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Final CTA - urgency */}
-          <div className="text-center pt-12 sm:pt-16 pb-12 sm:pb-16 animate-fade-in px-4" style={{ animationDelay: '2s' }}>
-            <div className="glass-card rounded-3xl p-8 sm:p-12 max-w-3xl mx-auto backdrop-blur-2xl border-2 border-[hsl(340,82%,58%)]/30">
-              <div className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4 sm:mb-6">
-                Your Content.<br />Your Money.<br />Your Rules.
-              </div>
-              <p className="text-lg sm:text-xl text-white/80 mb-8 sm:mb-10 leading-relaxed">
-                Every minute you wait is money left on the table.
-                <br className="hidden sm:block" />
-                <span className="text-[hsl(340,82%,58%)] font-bold">Join 127,000+ creators already earning.</span>
-              </p>
-              <Button
-                size="lg"
-                className="w-full sm:w-auto text-xl sm:text-2xl px-12 sm:px-20 py-8 sm:py-10 bg-gradient-to-r from-[hsl(340,82%,58%)] via-[hsl(280,70%,60%)] to-[hsl(340,82%,58%)] hover:scale-105 text-white font-black rounded-2xl shadow-[0_0_60px_hsl(340,82%,58%/0.6)] hover:shadow-[0_0_80px_hsl(340,82%,58%/0.9)] transition-all duration-300 border-2 border-white/20 animate-pulse-glow bg-[length:200%_auto] animate-gradient"
-                onClick={() => navigate("/auth")}
-              >
-                <Zap className="mr-3 h-7 w-7 fill-current" />
-                START EARNING TODAY
-                <ArrowRight className="ml-3 h-7 w-7" />
-              </Button>
-              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-white/60 text-sm">
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-[hsl(340,82%,58%)]" />
-                  <span>Free forever</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-[hsl(340,82%,58%)]" />
-                  <span>No credit card needed</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-[hsl(340,82%,58%)]" />
-                  <span>Start earning in 24hrs</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          ))}
         </div>
+
+        {/* BENTO FEATURES */}
+        <h2 className="sr-only">What you can do on TokMarket</h2>
+        <div className="grid grid-cols-12 gap-6 mb-32">
+          <div className="col-span-12 md:col-span-8 p-10 bg-[#151515] border-2 border-white/10 rounded-3xl relative overflow-hidden group hover:border-[#e84393] transition-all">
+            <div className="relative z-10">
+              <h3 className="font-display text-6xl mb-4">SELL ANYTHING</h3>
+              <p className="text-xl text-gray-400 max-w-md">
+                Physical products, digital downloads, merch—AI writes your
+                listings in 10 seconds.
+              </p>
+              <button
+                onClick={() => navigate("/create")}
+                className="mt-8 inline-flex items-center font-bold gap-2 cursor-pointer"
+                style={{ color: SUNSET.magenta }}
+              >
+                INSTANT SETUP →
+              </button>
+            </div>
+            <div
+              className="absolute top-0 right-0 w-64 h-64 opacity-10 group-hover:opacity-30 transition-opacity"
+              style={{
+                background: `linear-gradient(to bottom right, ${SUNSET.magenta}, transparent)`,
+              }}
+            />
+          </div>
+
+          <div className="col-span-12 md:col-span-4 p-10 bg-[#151515] border-2 border-white/10 rounded-3xl hover:border-[#6c5ce7] transition-all">
+            <h3 className="font-display text-5xl mb-4">COACH</h3>
+            <p className="text-lg text-gray-400">
+              Upload courses, go live, build a following. Turn your knowledge
+              into recurring income.
+            </p>
+          </div>
+
+          <div className="col-span-12 md:col-span-4 p-10 bg-[#151515] border-2 border-white/10 rounded-3xl hover:border-[#f7931e] transition-all">
+            <h3 className="font-display text-5xl mb-4">OWN IT</h3>
+            <p className="text-lg text-gray-400">
+              No algorithm BS. Your fans = your income. Build once, earn
+              forever.
+            </p>
+          </div>
+
+          <div
+            className="col-span-12 md:col-span-8 p-10 rounded-3xl flex items-center justify-between"
+            style={{
+              background: `linear-gradient(to right, ${SUNSET.magenta}, ${SUNSET.violet})`,
+            }}
+          >
+            <div>
+              <h3 className="font-display text-6xl text-white leading-none">
+                LIVE ACTIVITY FEED
+              </h3>
+              <p className="text-white/80 font-bold uppercase tracking-tighter mt-2">
+                +247 creators joined today
+              </p>
+            </div>
+            <div className="hidden lg:block space-y-2">
+              <div className="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-sm italic">
+                Sarah M. sold a course for $197
+              </div>
+              <div className="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-sm italic translate-x-4">
+                Mike D. earned $89 from merch
+              </div>
+              <div className="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-sm italic">
+                Chris P. went live for $543
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CHIPS */}
+        <h2 className="sr-only">Creators who win on TokMarket</h2>
+        <div className="flex flex-wrap justify-center gap-4 mb-40">
+          {[
+            { name: "Fitness Coaches", bg: "#ffffff", color: "#000", rot: "rotate-2", glow: true },
+            { name: "Artists", bg: SUNSET.orange, color: "#fff", rot: "-rotate-3" },
+            { name: "Musicians", bg: SUNSET.violet, color: "#fff", rot: "rotate-1" },
+            { name: "Teachers", bg: SUNSET.amber, color: "#000", rot: "-rotate-2" },
+            { name: "Food Creators", bg: SUNSET.magenta, color: "#fff", rot: "rotate-2" },
+            { name: "Business Experts", bg: "#ffffff", color: "#000", rot: "-rotate-1" },
+            { name: "Gamers", bg: SUNSET.magenta, color: "#fff", rot: "-rotate-2" },
+            { name: "Lifestyle Influencers", bg: "transparent", color: "#fff", rot: "rotate-2", border: true },
+          ].map((c) => (
+            <span
+              key={c.name}
+              className={`px-6 py-2 font-display text-xl rounded-full ${c.rot} transition-transform hover:rotate-0`}
+              style={{
+                background: c.bg,
+                color: c.color,
+                border: c.border ? "2px solid rgba(255,255,255,0.2)" : undefined,
+                boxShadow: c.glow ? "0 0 15px rgba(255,255,255,0.4)" : undefined,
+              }}
+            >
+              {c.name}
+            </span>
+          ))}
+        </div>
+
+        {/* COMPARISON */}
+        <section className="mb-40 border-t-4 border-b-4 border-white py-20">
+          <h2 className="font-display text-7xl text-center mb-16 tracking-tight">
+            WHY CREATORS ARE{" "}
+            <span style={{ color: SUNSET.magenta }}>SWITCHING</span>
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left font-display text-3xl">
+              <thead className="border-b border-white/10">
+                <tr>
+                  <th className="py-6 px-4">Feature</th>
+                  <th className="py-6 px-4 italic" style={{ color: SUNSET.orange }}>
+                    TokMarket
+                  </th>
+                  <th className="py-6 px-4 text-gray-600">Platform A</th>
+                  <th className="py-6 px-4 text-gray-600">Platform B</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/5">
+                {[
+                  { f: "You Keep", us: "90%", a: "0%", b: "0%" },
+                  { f: "Sell Anything", us: "YES", a: "NO", b: "NO" },
+                  { f: "Sell Courses", us: "YES", a: "NO", b: "NO" },
+                  { f: "Own Your Audience", us: "YES", a: "NO", b: "NO" },
+                  { f: "AI Listing Creator", us: "YES", a: "NO", b: "NO" },
+                  { f: "Algorithm BS", us: "NEVER", a: "ALWAYS", b: "ALWAYS" },
+                ].map((r) => (
+                  <tr key={r.f}>
+                    <td className="py-8 px-4 font-body font-bold text-lg text-gray-400">
+                      {r.f}
+                    </td>
+                    <td
+                      className="py-8 px-4"
+                      style={{ color: SUNSET.magenta }}
+                    >
+                      {r.us}
+                    </td>
+                    <td className="py-8 px-4 text-gray-600 font-body font-normal text-sm">
+                      {r.a}
+                    </td>
+                    <td className="py-8 px-4 text-gray-600 font-body font-normal text-sm">
+                      {r.b}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <h2 className="font-display text-6xl text-center mb-12">
+          REAL CREATORS.{" "}
+          <span style={{ color: SUNSET.magenta }}>REAL RESULTS.</span>
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-32">
+          {[
+            {
+              name: "ALEX RIVERA",
+              role: "Fitness Coach",
+              quote:
+                "Made more in my first month here than 2 years on other platforms combined.",
+              earn: "$12K/mo",
+              bg: "#ffffff",
+              fg: "#000",
+              accent: SUNSET.violet,
+              shadow: SUNSET.violet,
+              rot: "-rotate-1",
+            },
+            {
+              name: "EMMA CHEN",
+              role: "Art Teacher",
+              quote:
+                "Finally a platform that values creators. My students love the course format!",
+              earn: "$8.5K/mo",
+              bg: SUNSET.orange,
+              fg: "#fff",
+              accent: "#fff",
+              shadow: "#ffffff",
+              rot: "rotate-2",
+            },
+            {
+              name: "JORDAN LEE",
+              role: "Business Coach",
+              quote:
+                "Went from 0 to $15K monthly in 90 days. The audience ownership changed everything.",
+              earn: "$15K/mo",
+              bg: "#000",
+              fg: "#fff",
+              accent: SUNSET.magenta,
+              shadow: SUNSET.magenta,
+              rot: "-rotate-1",
+              border: SUNSET.magenta,
+            },
+          ].map((t) => (
+            <div
+              key={t.name}
+              className={`p-8 ${t.rot} hover:rotate-0 transition-transform`}
+              style={{
+                background: t.bg,
+                color: t.fg,
+                boxShadow: `10px 10px 0px ${t.shadow}`,
+                border: t.border ? `2px solid ${t.border}` : undefined,
+              }}
+            >
+              <div className="font-display text-3xl mb-1">{t.name}</div>
+              <div
+                className="text-xs uppercase tracking-widest mb-4 opacity-70"
+              >
+                {t.role}
+              </div>
+              <p className="italic mb-4 font-medium">"{t.quote}"</p>
+              <div
+                className="font-display text-4xl"
+                style={{ color: t.accent }}
+              >
+                {t.earn}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* FAQ */}
+        <section className="max-w-3xl mx-auto mb-40">
+          <h2 className="font-display text-6xl text-center mb-12">
+            COMMON <span style={{ color: SUNSET.amber }}>QUESTIONS</span>
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: "How do I get paid?",
+                a: "Instant payouts to your bank account or digital wallet. You keep 90% of every sale.",
+                c: SUNSET.magenta,
+              },
+              {
+                q: "Is it really free?",
+                a: "100% free to join and create. We only make money when you make money (10% platform fee).",
+                c: SUNSET.violet,
+              },
+              {
+                q: "How fast can I start selling?",
+                a: "Upload a product photo, AI creates the listing in 10 seconds. You can be live in under 5 minutes.",
+                c: SUNSET.orange,
+              },
+              {
+                q: "Do I need followers to start?",
+                a: "Nope! Our feed algorithm shows your content to interested buyers from day one.",
+                c: SUNSET.amber,
+              },
+            ].map((f) => (
+              <div
+                key={f.q}
+                className="p-6 border border-white/20 transition-colors"
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.borderColor = f.c)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)")
+                }
+              >
+                <div
+                  className="font-display text-2xl mb-2"
+                  style={{ color: f.c }}
+                >
+                  {f.q}
+                </div>
+                <p className="text-gray-400">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FINAL CTA */}
+        <section
+          className="relative p-1 overflow-hidden rounded-[3rem]"
+          style={{
+            background: `linear-gradient(to bottom right, ${SUNSET.orange}, ${SUNSET.magenta}, ${SUNSET.violet})`,
+          }}
+        >
+          <div className="bg-black rounded-[2.9rem] p-10 sm:p-16 text-center">
+            <div className="font-display text-6xl sm:text-8xl leading-none mb-6 italic">
+              YOUR CONTENT.
+              <br />
+              YOUR MONEY.
+              <br />
+              <span
+                className="text-transparent bg-clip-text"
+                style={{
+                  backgroundImage: `linear-gradient(to right, ${SUNSET.amber}, ${SUNSET.orange})`,
+                }}
+              >
+                YOUR RULES.
+              </span>
+            </div>
+            <p className="text-xl text-gray-400 mb-10 max-w-xl mx-auto">
+              Every minute you wait is money left on the table. Join 127,000+
+              creators already earning.
+            </p>
+            <button
+              onClick={() => navigate("/auth")}
+              className="bg-white text-black font-display text-4xl px-16 py-6 rounded-full hover:scale-105 transition-transform cursor-pointer"
+            >
+              START EARNING TODAY →
+            </button>
+            <div className="mt-10 flex flex-wrap justify-center gap-8 text-xs font-bold uppercase tracking-widest text-gray-500">
+              <span>✓ Free forever</span>
+              <span>✓ No card needed</span>
+              <span>✓ Start in 24hrs</span>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
