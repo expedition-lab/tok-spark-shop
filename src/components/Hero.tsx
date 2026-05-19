@@ -174,6 +174,7 @@ export const Hero = () => {
             </div>
           </div>
         </div>
+        </LazySection>
 
         {/* CHIPS */}
         <h2 className="sr-only">Creators who win on TokMarket</h2>
