@@ -257,6 +257,9 @@ export const Hero = () => {
             </table>
           </div>
         </section>
+        </LazySection>
+
+        <LazySection minHeight={600}>
 
         {/* TESTIMONIALS */}
         <h2 className="font-display text-6xl text-center mb-12">
