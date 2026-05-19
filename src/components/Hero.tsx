@@ -333,6 +333,10 @@ export const Hero = () => {
           ))}
         </div>
 
+        </div>
+        </LazySection>
+
+        <LazySection minHeight={500}>
         {/* FAQ */}
         <section className="max-w-3xl mx-auto mb-40">
           <h2 className="font-display text-6xl text-center mb-12">
