@@ -16,28 +16,29 @@ export const Hero = () => {
         <h1>TokMarket — The social marketplace where creators keep 90%</h1>
       </span>
 
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
         {/* HERO */}
-        <section className="text-center mb-32 relative">
+        <section className="text-center mb-20 sm:mb-32 relative">
           <div
-            className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 blur-[120px] opacity-20 pointer-events-none"
-            style={{ background: SUNSET.violet }}
+            aria-hidden="true"
+            className="absolute -top-10 sm:-top-20 left-1/2 w-72 sm:w-96 h-72 sm:h-96 blur-[80px] sm:blur-[120px] opacity-20 pointer-events-none"
+            style={{ background: SUNSET.violet, transform: "translate3d(-50%,0,0)" }}
           />
           <div
-            className="inline-block bg-white text-black font-display text-2xl px-4 py-1 -rotate-2 mb-8"
+            className="inline-block bg-white text-black font-display text-lg sm:text-2xl px-3 sm:px-4 py-1 -rotate-2 mb-6 sm:mb-8"
             style={{ boxShadow: `4px 4px 0px ${SUNSET.magenta}` }}
           >
             LIMITED SPOTS AVAILABLE
           </div>
           <div
             aria-hidden="true"
-            className="font-display text-[clamp(5rem,15vw,12rem)] leading-[0.85] tracking-tighter"
+            className="font-display text-[clamp(4rem,15vw,12rem)] leading-[0.85] tracking-tighter"
           >
             <span className="block text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
               STOP
             </span>
             <span
-              className="block italic text-transparent bg-clip-text animate-pulse"
+              className="block italic text-transparent bg-clip-text"
               style={{
                 backgroundImage: `linear-gradient(to right, ${SUNSET.orange}, ${SUNSET.magenta}, ${SUNSET.violet})`,
               }}
@@ -45,7 +46,7 @@ export const Hero = () => {
               START EARNING
             </span>
           </div>
-          <p className="mt-8 max-w-2xl mx-auto text-xl text-gray-400">
+          <p className="mt-6 sm:mt-8 max-w-2xl mx-auto text-base sm:text-xl text-gray-400 px-2">
             Stop giving away your content for free. You keep{" "}
             <span
               className="font-bold underline decoration-2 underline-offset-4"
@@ -55,24 +56,20 @@ export const Hero = () => {
             </span>
             . Build once, earn forever.
           </p>
-          <div className="mt-12 flex flex-wrap justify-center gap-6">
+          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6">
             <button
               onClick={() => navigate("/auth")}
-              className="group relative text-white font-display text-3xl px-12 py-4 transition-all hover:translate-x-[4px] hover:translate-y-[4px] cursor-pointer"
+              className="text-white font-display text-2xl sm:text-3xl px-8 sm:px-12 py-3 sm:py-4 transition-transform active:translate-x-1 active:translate-y-1 cursor-pointer"
               style={{
                 background: SUNSET.magenta,
                 boxShadow: `8px 8px 0px ${SUNSET.violet}`,
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "none")}
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.boxShadow = `8px 8px 0px ${SUNSET.violet}`)
-              }
             >
               JOIN THE MOVEMENT
             </button>
             <button
               onClick={() => navigate("/shop")}
-              className="border-2 text-white font-display text-3xl px-12 py-4 hover:bg-white/5 transition-colors cursor-pointer"
+              className="border-2 text-white font-display text-2xl sm:text-3xl px-8 sm:px-12 py-3 sm:py-4 hover:bg-white/5 transition-colors cursor-pointer"
               style={{ borderColor: SUNSET.violet }}
             >
               BROWSE PRODUCTS
@@ -81,7 +78,7 @@ export const Hero = () => {
         </section>
 
         {/* STATS */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-32">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-20 sm:mb-32">
           {[
             { v: "$47M+", l: "Paid to creators", c: SUNSET.orange },
             { v: "127K+", l: "Active creators", c: SUNSET.magenta },
@@ -90,20 +87,15 @@ export const Hero = () => {
           ].map((s) => (
             <div
               key={s.l}
-              className="border p-6 backdrop-blur-sm transition-colors"
+              className="border p-4 sm:p-6 transition-colors hover:border-current"
               style={{
                 borderColor: `${s.c}4D`,
                 background: `${s.c}0D`,
+                color: s.c,
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = s.c)}
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.borderColor = `${s.c}4D`)
-              }
             >
-              <div className="font-display text-5xl" style={{ color: s.c }}>
-                {s.v}
-              </div>
-              <div className="text-xs uppercase tracking-widest text-gray-500">
+              <div className="font-display text-3xl sm:text-5xl">{s.v}</div>
+              <div className="text-[10px] sm:text-xs uppercase tracking-widest text-gray-500">
                 {s.l}
               </div>
             </div>
@@ -112,57 +104,58 @@ export const Hero = () => {
 
         {/* BENTO FEATURES */}
         <h2 className="sr-only">What you can do on TokMarket</h2>
-        <div className="grid grid-cols-12 gap-6 mb-32">
-          <div className="col-span-12 md:col-span-8 p-10 bg-[#151515] border-2 border-white/10 rounded-3xl relative overflow-hidden group hover:border-[#e84393] transition-all">
+        <div className="grid grid-cols-12 gap-4 sm:gap-6 mb-20 sm:mb-32">
+          <div className="col-span-12 md:col-span-8 p-6 sm:p-10 bg-[#151515] border-2 border-white/10 rounded-2xl sm:rounded-3xl relative overflow-hidden group hover:border-[#e84393] transition-colors">
             <div className="relative z-10">
-              <h3 className="font-display text-6xl mb-4">SELL ANYTHING</h3>
-              <p className="text-xl text-gray-400 max-w-md">
+              <h3 className="font-display text-4xl sm:text-6xl mb-3 sm:mb-4">SELL ANYTHING</h3>
+              <p className="text-base sm:text-xl text-gray-400 max-w-md">
                 Physical products, digital downloads, merch—AI writes your
                 listings in 10 seconds.
               </p>
               <button
                 onClick={() => navigate("/create")}
-                className="mt-8 inline-flex items-center font-bold gap-2 cursor-pointer"
+                className="mt-6 sm:mt-8 inline-flex items-center font-bold gap-2 cursor-pointer"
                 style={{ color: SUNSET.magenta }}
               >
                 INSTANT SETUP →
               </button>
             </div>
             <div
-              className="absolute top-0 right-0 w-64 h-64 opacity-10 group-hover:opacity-30 transition-opacity"
+              aria-hidden="true"
+              className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 opacity-10 group-hover:opacity-30 transition-opacity pointer-events-none"
               style={{
                 background: `linear-gradient(to bottom right, ${SUNSET.magenta}, transparent)`,
               }}
             />
           </div>
 
-          <div className="col-span-12 md:col-span-4 p-10 bg-[#151515] border-2 border-white/10 rounded-3xl hover:border-[#6c5ce7] transition-all">
-            <h3 className="font-display text-5xl mb-4">COACH</h3>
-            <p className="text-lg text-gray-400">
+          <div className="col-span-12 md:col-span-4 p-6 sm:p-10 bg-[#151515] border-2 border-white/10 rounded-2xl sm:rounded-3xl hover:border-[#6c5ce7] transition-colors">
+            <h3 className="font-display text-3xl sm:text-5xl mb-3 sm:mb-4">COACH</h3>
+            <p className="text-base sm:text-lg text-gray-400">
               Upload courses, go live, build a following. Turn your knowledge
               into recurring income.
             </p>
           </div>
 
-          <div className="col-span-12 md:col-span-4 p-10 bg-[#151515] border-2 border-white/10 rounded-3xl hover:border-[#f7931e] transition-all">
-            <h3 className="font-display text-5xl mb-4">OWN IT</h3>
-            <p className="text-lg text-gray-400">
+          <div className="col-span-12 md:col-span-4 p-6 sm:p-10 bg-[#151515] border-2 border-white/10 rounded-2xl sm:rounded-3xl hover:border-[#f7931e] transition-colors">
+            <h3 className="font-display text-3xl sm:text-5xl mb-3 sm:mb-4">OWN IT</h3>
+            <p className="text-base sm:text-lg text-gray-400">
               No algorithm BS. Your fans = your income. Build once, earn
               forever.
             </p>
           </div>
 
           <div
-            className="col-span-12 md:col-span-8 p-10 rounded-3xl flex items-center justify-between"
+            className="col-span-12 md:col-span-8 p-6 sm:p-10 rounded-2xl sm:rounded-3xl flex flex-col md:flex-row gap-4 md:items-center md:justify-between"
             style={{
               background: `linear-gradient(to right, ${SUNSET.magenta}, ${SUNSET.violet})`,
             }}
           >
             <div>
-              <h3 className="font-display text-6xl text-white leading-none">
+              <h3 className="font-display text-4xl sm:text-6xl text-white leading-none">
                 LIVE ACTIVITY FEED
               </h3>
-              <p className="text-white/80 font-bold uppercase tracking-tighter mt-2">
+              <p className="text-white/80 font-bold uppercase tracking-tighter mt-2 text-sm sm:text-base">
                 +247 creators joined today
               </p>
             </div>
