@@ -332,8 +332,6 @@ export const Hero = () => {
             </div>
           ))}
         </div>
-
-        </div>
         </LazySection>
 
         <LazySection minHeight={500}>
