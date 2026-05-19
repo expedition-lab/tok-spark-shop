@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { LazySection } from "./LazySection";
 
 const SUNSET = {
   orange: "#ff6b35",
