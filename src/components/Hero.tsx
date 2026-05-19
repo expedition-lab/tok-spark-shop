@@ -103,6 +103,7 @@ export const Hero = () => {
           ))}
         </div>
 
+        <LazySection minHeight={600} className="mb-20 sm:mb-32">
         {/* BENTO FEATURES */}
         <h2 className="sr-only">What you can do on TokMarket</h2>
         <div className="grid grid-cols-12 gap-4 sm:gap-6 mb-20 sm:mb-32">
