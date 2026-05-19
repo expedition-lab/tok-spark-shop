@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { LazySection } from "./LazySection";
 
 const SUNSET = {
   orange: "#ff6b35",
@@ -102,6 +103,7 @@ export const Hero = () => {
           ))}
         </div>
 
+        <LazySection minHeight={600} className="mb-20 sm:mb-32">
         {/* BENTO FEATURES */}
         <h2 className="sr-only">What you can do on TokMarket</h2>
         <div className="grid grid-cols-12 gap-4 sm:gap-6 mb-20 sm:mb-32">
@@ -172,7 +174,9 @@ export const Hero = () => {
             </div>
           </div>
         </div>
+        </LazySection>
 
+        <LazySection minHeight={200}>
         {/* CHIPS */}
         <h2 className="sr-only">Creators who win on TokMarket</h2>
         <div className="flex flex-wrap justify-center gap-4 mb-40">
@@ -200,6 +204,9 @@ export const Hero = () => {
             </span>
           ))}
         </div>
+        </LazySection>
+
+        <LazySection minHeight={800}>
 
         {/* COMPARISON */}
         <section className="mb-40 border-t-4 border-b-4 border-white py-20">
@@ -250,6 +257,9 @@ export const Hero = () => {
             </table>
           </div>
         </section>
+        </LazySection>
+
+        <LazySection minHeight={600}>
 
         {/* TESTIMONIALS */}
         <h2 className="font-display text-6xl text-center mb-12">
@@ -322,7 +332,9 @@ export const Hero = () => {
             </div>
           ))}
         </div>
+        </LazySection>
 
+        <LazySection minHeight={500}>
         {/* FAQ */}
         <section className="max-w-3xl mx-auto mb-40">
           <h2 className="font-display text-6xl text-center mb-12">
@@ -372,7 +384,9 @@ export const Hero = () => {
             ))}
           </div>
         </section>
+        </LazySection>
 
+        <LazySection minHeight={600}>
         {/* FINAL CTA */}
         <section
           className="relative p-1 overflow-hidden rounded-[3rem]"
@@ -412,6 +426,7 @@ export const Hero = () => {
             </div>
           </div>
         </section>
+        </LazySection>
       </div>
     </div>
   );
