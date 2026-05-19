@@ -204,6 +204,9 @@ export const Hero = () => {
             </span>
           ))}
         </div>
+        </LazySection>
+
+        <LazySection minHeight={800}>
 
         {/* COMPARISON */}
         <section className="mb-40 border-t-4 border-b-4 border-white py-20">
