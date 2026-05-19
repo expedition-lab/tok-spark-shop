@@ -384,7 +384,9 @@ export const Hero = () => {
             ))}
           </div>
         </section>
+        </LazySection>
 
+        <LazySection minHeight={600}>
         {/* FINAL CTA */}
         <section
           className="relative p-1 overflow-hidden rounded-[3rem]"
