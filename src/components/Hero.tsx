@@ -176,6 +176,7 @@ export const Hero = () => {
         </div>
         </LazySection>
 
+        <LazySection minHeight={200}>
         {/* CHIPS */}
         <h2 className="sr-only">Creators who win on TokMarket</h2>
         <div className="flex flex-wrap justify-center gap-4 mb-40">
