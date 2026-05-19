@@ -426,6 +426,7 @@ export const Hero = () => {
             </div>
           </div>
         </section>
+        </LazySection>
       </div>
     </div>
   );
